@@ -18,13 +18,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -41,7 +42,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "nazdeeq"
+    }
+  },
+  "defaultProject": "nazdeeq",
+  "cli": {
+    "analytics": "10dba33e-d643-4846-955c-5f3cfa112fa8"
+  }
 }
