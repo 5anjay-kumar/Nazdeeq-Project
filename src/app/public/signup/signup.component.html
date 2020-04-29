@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="row full-height">
+    <div class="col-sm-4 color-gradient ">
+    </div>
+    <div class="col-sm-8 text-center">
+      <div class="row">
+        <div class="col"> </div>
+        <div class="col-6">
+          <img src="../../../assets/img/logo.png" width="40%" alt="">
+          <h3 class="text-secondary text-center">Nazdeeq</h3>
+          <p class="text-secondary text-center">Create Account</p>
+          <hr>
+          <form [formGroup]="userRegisterForm" (ngSubmit)="registerUser()">
+            <div class="form-group d-flex justify-content-center">
+              <div class="input-group">
+                <input type="text" class="form-control" name="firstName" formControlName="firstName"
+                  placeholder="First Name">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="far fa-user"></i></span>
+                </div>
+              </div>
+            </div>
+            <small *ngIf="userRegisterForm.get('firstName') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
+            <div class="form-group d-flex justify-content-center">
+              <div class="input-group ml-2">
+                <input type="text" class="form-control" name="lastName" formControlName="lastName"
+                  placeholder="Last Name">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="far fa-user"></i></span>
+                </div>
+              </div>
+            </div>
+            <small *ngIf="userRegisterForm.get('lastName') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
+            <div class="form-group d-flex justify-content-center">
+              <div class="input-group">
+                <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                </div>
+              </div>
+            </div>
+            <small *ngIf="userRegisterForm.get('email') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
+            <div class="form-group d-flex justify-content-center">
+              <div class="input-group">
+                <input type="text" class="form-control" name="phoneNo" formControlName="phoneNo" placeholder="Phone No">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                </div>
+              </div>
+            </div>
+            <small *ngIf="userRegisterForm.get('phoneNo') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
+            <div class="form-group d-flex justify-content-center d-inline">
+              <div class="input-group">
+                <input type="password" class="form-control" name="password" formControlName="password"
+                  placeholder="Password">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+              </div>
+            </div>
+            <small *ngIf="userRegisterForm.get('password') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
+            <div class="btn-group btn-group-toggle" ngbRadioGroup name="gender" formControlName="gender">
+              <label ngbButtonLabel class="btn-info">
+                <input ngbButton type="radio" value="true" checked>
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-male"></i></span>
+                </div>
+              </label>
+              <label ngbButtonLabel class="btn-info">
+                <input ngbButton type="radio" [value]="false">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-female"></i></span>
+                </div>
+              </label>
+            </div>
+            <div class="d-inline">
+              <button type="submit" class="btn btn-dark btn-round color-gradient">Sign Up</button>
+            </div>
+            <small *ngIf="userRegisterForm.get('gender') | isvalid: ['required']" class="error-msg error-padding">This
+              field is
+              required!</small>
+            <div>
+              <button class="btn btn-link " routerLink="/login">Have already an account? Login here</button>
+            </div>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,26 +10,39 @@
           <h1 class="text-secondary text-center">Nazdeeq</h1>
           <p class="text-secondary text-center">Welcome to Nazdeeq! Please login to your account</p>
           <hr>
-          <form>
+          <form [formGroup]="loginForm">
             <div class="form-group d-flex justify-content-center">
               <div class="input-group">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" placeholder="Email" name="email" formControlName="email">
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="far fa-user"></i></span>
                 </div>
               </div>
             </div>
+            <small *ngIf="loginForm.get('email') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
             <div class="form-group d-flex justify-content-center">
               <div class="input-group">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" name="password"
+                  formControlName="password">
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="fas fa-lock"></i></span>
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-dark btn-round color-gradient">Login</button>
+            <small *ngIf="loginForm.get('password') | isvalid: ['required']" class="error-msg">This field is
+              required!</small>
+            <!-- <button type="submit" class="btn btn-dark btn-round color-gradient">Login</button> -->
+            <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+              <button type="button" class="btn btn-dark color-gradient" id="dropdownManual" ngbDropdownAnchor
+                (focus)="myDrop.open()">Login As</button>
+              <div class="rounded-top" ngbDropdownMenu aria-labelledby="dropdownManual">
+                <button class="btn btn-dark" (click)="login('admin')" ngbDropdownItem>Admin</button>
+                <button class="btn btn-dark" (click)="login('user')" ngbDropdownItem>User</button>
+              </div>
+            </div>
             <div>
-              <button class="btn btn-link">Need Help?</button>
+              <button class="btn btn-link " routerLink="/signup">Not registred? Create an account</button>
             </div>
           </form>
         </div>

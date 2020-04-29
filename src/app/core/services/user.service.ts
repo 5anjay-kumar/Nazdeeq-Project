@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 export class UserService {
   constructor(private http: HttpClient) {}
   getUsers() {
-    return this.http.get(environment.apiBaseUrl + "/secure/passenger").pipe(
+    return this.http.get("/secure/passenger").pipe(
       map((data: any) => {
         return data;
       })
@@ -19,6 +19,6 @@ export class UserService {
   }
 
   addUser(data): Observable<any> {
-    return this.http.post(environment.apiBaseUrl + "/secure/passenger", data);
+    return this.http.post("/secure/passenger", data);
   }
 }

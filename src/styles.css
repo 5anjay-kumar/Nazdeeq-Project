@@ -12,3 +12,16 @@ body {
   text-align: left;
   background-color: #fff;
 }
+
+.error-msg  {
+  display: block;
+  color: #dc3545;
+  padding-left: 0.5rem;
+  margin-top: .25rem;
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.cp {
+  cursor: pointer;
+}

@@ -42,6 +42,10 @@
     padding: 11px 23px;
 }
 
+.btn-group {
+  padding-right: 25% ;
+}
+
 .btn {
   font-weight: 400;
   font-size: 0.8571em;
@@ -49,9 +53,45 @@
   margin: 10px 1px;
   border: none;
 }
+
+.btn-dark {
+  width: 30%;
+}
+
 .btn-link {
   background-color: transparent;
   color: #979797;
   text-decoration: none;
   box-shadow: none;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: white;
+  border-color: white;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: white;
+  border-color: white;
+}
+
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
+  color: #fff;
+  background-image: linear-gradient(to right top, #5955aa, #4b4890, #3d3c77, #30305f, #242448);
+  border-color: white;
+
+}
+
+.light-blue-backdrop {
+  background-color: #aadee2b0;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #ff4040c7;
+}
+
+.error-padding {
+  padding-right: 56% ;
 }
