@@ -1,15 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { constants } from './../../../app.constants';
+import { AuthService } from './../../../core/services/auth.service';
+import { EmitterService } from './../../../core/services/emitter.service';
+import { LoginUser } from './../../../core/model/login-user';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit,  OnDestroy {
 
-  constructor() { }
+  isAuthenticated = false;
+  loggedInUser: LoginUser;
+  isMenuCollapsed = true;
+
+  constructor(private router: Router, private emitterService: EmitterService) { }
 
   ngOnInit() {
+    this._loadLoggedInUser();
+    this.emitterService.subscribe(constants.events.loadLoggedInUser, () => this._loadLoggedInUser());
+  }
+
+  private _loadLoggedInUser() {
+    this.isAuthenticated = AuthService.isAuthenticated();
+    if (this.isAuthenticated) {
+      this.loggedInUser = AuthService.getLoginUser();
+    } else {
+      this.loggedInUser = undefined;
+    }
+  }
+
+  logout() {
+    AuthService.logout();
+    this._loadLoggedInUser();
+    this.router.navigate(["/login"]);
+  }
+
+  ngOnDestroy() {
+    this.emitterService.unsubscribe(constants.events.loadLoggedInUser);
   }
 
 }

@@ -10,6 +10,7 @@ import { HeaderComponent } from "./shared/header/header.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { HttpClientModule } from '@angular/common/http';
 import { PassengerModule } from './passenger/passenger.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PassengerModule } from './passenger/passenger.module';
     CommonModule,
     SecureRoutingModule,
     DashboardModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ]
 })
 export class SecureModule {}
