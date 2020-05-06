@@ -9,7 +9,6 @@ import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { FooterComponent } from "./shared/footer/footer.component";
 import { HttpClientModule } from '@angular/common/http';
-import { PassengerModule } from './passenger/passenger.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -17,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SecureComponent,
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,

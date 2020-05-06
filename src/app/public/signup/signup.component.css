@@ -95,3 +95,9 @@ input.ng-invalid.ng-touched {
 .error-padding {
   padding-right: 56% ;
 }
+
+label {
+  margin-bottom: 0;
+}
+
+

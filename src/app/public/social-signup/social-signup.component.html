@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h4 class="modal-title">Sign Up</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeWindow()">
+    <!-- <span aria-hidden="true">&times;</span> -->
+    <i class="far fa-times-circle"></i>
+  </button>
+</div>
+<div class="modal-body ">
+  <div class="row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-8">
+      <form [formGroup]="socialSignupForm" (ngSubmit)="registerUser()">
+        <div class="form-group">
+          <input type="text" name="phoneNo" formControlName="phoneNo"
+            class="form-control border border-info rounded-pill" placeholder="Phone No">
+          <small *ngIf="socialSignupForm.get('phoneNo')| isvalid: ['required']" class="error-msg">This field is
+            required!</small>
+        </div>
+        <div class="btn-group btn-group-toggle d-flex justify-content-center" ngbRadioGroup name="gender" formControlName="gender">
+          <label ngbButtonLabel class="btn-info btn-sm">
+            <input ngbButton type="radio" [value]="true"> Male
+          </label>
+          <label ngbButtonLabel class="btn-info btn-sm">
+            <input ngbButton type="radio" [value]="false"> Female
+          </label>
+        </div>
+        <small *ngIf="socialSignupForm.get('gender')| isvalid: ['required']" class="error-msg">This field is
+          required!</small>
+        <div class="d-flex justify-content-center mt-2">
+          <button type="submit" class="btn btn-outline-info rounded-pill btn-lg float-right">Sign Up</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-2"> </div>
+  </div>
+</div>

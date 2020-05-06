@@ -1,6 +1,5 @@
 import { AuthGuard } from './core/gaurd/auth.guard';
 import { SignupComponent } from './public/signup/signup.component';
-import { SecureModule } from "./secure/secure.module";
 import { LoginComponent } from "./public/login/login.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -25,7 +24,6 @@ const routes: Routes = [
         component: SignupComponent
       }
     ],
-    canActivate: [AuthGuard]
   },
   {
     path: "secure",
@@ -33,6 +31,13 @@ const routes: Routes = [
       import("../app/secure/secure.module").then(m => m.SecureModule),
       canActivate: [AuthGuard],
       data: { role: 'admin' }
+  },
+  {
+    path: "profile",
+    loadChildren: () =>
+      import("../app/public/profile/profile.module").then(m => m.ProfileModule),
+      canActivate: [AuthGuard],
+      data: { role: 'user' }
   },
   { path: "**", redirectTo: "login" }
 ];

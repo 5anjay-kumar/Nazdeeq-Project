@@ -6,6 +6,8 @@ export class LoginUser {
     public email: string,
     public exp: string,
     public token: string,
-    public role: string
+    public role: string,
+    public provider: string,
+    public providerID: string,
   ) {}
 }

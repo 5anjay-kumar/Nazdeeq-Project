@@ -55,3 +55,31 @@
   text-decoration: none;
   box-shadow: none;
 }
+
+label {
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  background-color: #4267b2;
+    border-color: #29487d;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.separator::before, .separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.circle {
+  border-radius:55%;
+  border:solid rgba(0,0,0,.1) 1px;
+  padding: 2px 4px;
+  font-size: 14px;
+}
+

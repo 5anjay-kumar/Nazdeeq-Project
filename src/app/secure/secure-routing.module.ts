@@ -28,15 +28,6 @@ const routes: Routes = [
         loadChildren: () => import('./driver/driver.module')
           .then(m => m.DriverModule),
       },
-      // {
-      //   path: "",
-      //   redirectTo: "dashboard",
-      //   pathMatch: "full"
-      // }
-      // {
-      //   path: '**',
-      //   component: NotFoundComponent,
-      // },
     ]
   }
 ];

@@ -4,9 +4,10 @@ import { map } from "rxjs/operators";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
@@ -87,7 +88,9 @@ export class AuthService {
       decodedToken.email,
       decodedToken.exp,
       token,
-      decodedToken.role
+      decodedToken.role,
+      decodedToken.provider,
+      decodedToken.providerID,
     );
 
     return loginUser;
@@ -96,7 +99,19 @@ export class AuthService {
   login(data) {
     return this.http.post(constants.apiUrl.login, data).pipe(
       map((response: any) => {
-        // localStorage.setItem("bq-auth", response.token);
+        console.log(response.token);
+        return this.addLoginUserInLocalStorage(response);
+      })
+    );
+  }
+
+  signupSocialUser(data): Observable<any> {
+    return this.http.post("/social/signup", data);
+  }
+
+  signinSocialUser(data): Observable<any> {
+    return this.http.post("/social/signin", data).pipe(
+      map((response: any) => {
         console.log(response.token);
         return this.addLoginUserInLocalStorage(response);
       })

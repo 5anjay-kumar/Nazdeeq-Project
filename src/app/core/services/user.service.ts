@@ -18,7 +18,8 @@ export class UserService {
     );
   }
 
+
   addUser(data): Observable<any> {
-    return this.http.post("/secure/passenger", data);
+    return this.http.post("/local/signup", data);
   }
 }

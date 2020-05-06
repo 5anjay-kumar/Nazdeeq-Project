@@ -6,10 +6,13 @@
       <div class="row">
         <div class="col"> </div>
         <div class="col-6">
-          <img src="../../../assets/img/logo.png" width="90%" alt="">
-          <h1 class="text-secondary text-center">Nazdeeq</h1>
-          <p class="text-secondary text-center">Welcome to Nazdeeq! Please login to your account</p>
+          <img src="../../../assets/img/logo.png" width="50%" alt="">
+          <h1 class="text-secondary text-center"> Nazdeeq</h1>
+          <p class="text-secondary text-center">Join us & share your ride to reduce the effect on the environment!</p>
           <hr>
+          <div *ngIf="error">
+            <ngb-alert [type]="'danger'" (close)="clearError()">{{ error }}</ngb-alert>
+          </div>
           <form [formGroup]="loginForm">
             <div class="form-group d-flex justify-content-center">
               <div class="input-group">
@@ -41,6 +44,20 @@
                 <button class="btn btn-dark" (click)="login('user')" ngbDropdownItem>User</button>
               </div>
             </div>
+            <div class="separator "> <span class="circle">OR</span></div>
+            <div class="d-inline">
+              <a class="btn btn-light btn-round google-btn shadow" (click)="signInWithGoogle()">
+                <img width="20px" class="google-logo" alt="Google sign-in" src="/assets/img/google.png" />
+               <label for="" class="ml-2 text-secondary"> Sign in with Google</label>
+              </a>
+            </div>
+            <div class="d-inline ml-2">
+              <a class="btn btn-primary btn-round shadow" (click)="signInWithFacebook()">
+                <img width="20px" class="facebook-logo" alt="Google sign-in" src="/assets/img/facebook.png" />
+               <label for="" class="ml-2 text-light"> Sign in with Facebook</label>
+              </a>
+            </div>
+              <hr>
             <div>
               <button class="btn btn-link " routerLink="/signup">Not registred? Create an account</button>
             </div>

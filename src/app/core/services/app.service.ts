@@ -118,7 +118,7 @@ export class AppService {
     if (loginUser.role === "admin") {
       return "/secure/dashboard";
     } else if (loginUser.role === "user") {
-      return "/user";
+      return "/profile";
     }
   }
 }
