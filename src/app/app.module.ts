@@ -1,3 +1,6 @@
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { LoaderInterceptor } from "./core/interceptor/loader-interceptor";
+import { LoaderService } from "./core/services/loader.service";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CoreModule } from "./core/core.module";
 import { LoginComponent } from "./public/login/login.component";
@@ -14,12 +17,15 @@ import {
   SocialLoginModule,
   AuthServiceConfig,
 } from "angularx-social-login";
-import { SocialSignupComponent } from './public/social-signup/social-signup.component';
+import { SocialSignupComponent } from "./public/social-signup/social-signup.component";
+import { MyLoaderComponent } from "./public/my-loader/my-loader.component";
 
 const config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("801992059001-ihk536e4bkg62dbmdq7slgas3t4din8d.apps.googleusercontent.com"),
+    provider: new GoogleLoginProvider(
+      "801992059001-ihk536e4bkg62dbmdq7slgas3t4din8d.apps.googleusercontent.com"
+    ),
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
@@ -38,6 +44,7 @@ export function provideConfig() {
     LoginComponent,
     SignupComponent,
     SocialSignupComponent,
+    MyLoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +56,15 @@ export function provideConfig() {
     FormsModule,
   ],
   providers: [
+    LoaderService,
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],
