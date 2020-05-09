@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-sm-2"> </div>
     <div class="col-sm-8">
-      <form [formGroup]="addPassengerForm" (ngSubmit)="registerPassenger()">
+      <form [formGroup]="registerDispatcherForm" (ngSubmit)="registerPassenger()">
         <div class="form-group">
           <input type="text" name="firstName" formControlName="firstName"
             class="form-control border border-info rounded-pill" placeholder="First Name">
@@ -46,22 +46,6 @@
           </label>
           <label ngbButtonLabel class="btn-info btn-sm">
             <input ngbButton type="radio" [value]="false"> Female
-          </label>
-        </div>
-        <div class="input-group d-flex justify-content-center mt-2">
-          <input class="form-control date-picker" placeholder="yyyy-mm-dd" name="dateOfJoin" formControlName="dateOfJoin"
-           type="text">
-          <div class="input-group-append">
-            <button class="btn btn-outline-info calendar" type="button"><i
-                class="far fa-calendar-alt"></i></button>
-          </div>
-        </div>
-        <div class="btn-group btn-group-toggle d-flex justify-content-center mt-2" ngbRadioGroup name="status" formControlName="status">
-          <label ngbButtonLabel class="btn-info btn-sm">
-            <input ngbButton type="radio" [value]="true"> Active
-          </label>
-          <label ngbButtonLabel class="btn-info btn-sm">
-            <input ngbButton type="radio" [value]="false"> Inactive
           </label>
         </div>
         <div class="d-flex justify-content-center mt-2">

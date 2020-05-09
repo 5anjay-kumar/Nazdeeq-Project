@@ -6,7 +6,7 @@ import { CoreModule } from "./core/core.module";
 import { LoginComponent } from "./public/login/login.component";
 import { PublicComponent } from "./public/public.component";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -19,6 +19,9 @@ import {
 } from "angularx-social-login";
 import { SocialSignupComponent } from "./public/social-signup/social-signup.component";
 import { MyLoaderComponent } from "./public/my-loader/my-loader.component";
+import { BusyComponent } from "./public/busy/busy.component";
+import { NgBusyModule } from "ng-busy";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const config = new AuthServiceConfig([
   {
@@ -45,6 +48,7 @@ export function provideConfig() {
     SignupComponent,
     SocialSignupComponent,
     MyLoaderComponent,
+    BusyComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,13 @@ export function provideConfig() {
     ReactiveFormsModule,
     SocialLoginModule,
     FormsModule,
+    NgBusyModule.forRoot({
+      backdrop: true,
+      template: BusyComponent,
+      wrapperClass: "ng-busy",
+      delay: 0,
+    }),
+    BrowserAnimationsModule,
   ],
   providers: [
     LoaderService,
@@ -61,11 +72,11 @@ export function provideConfig() {
       provide: AuthServiceConfig,
       useFactory: provideConfig,
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: LoaderInterceptor,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })

@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit,  OnDestroy {
 
+  isMenuCollapsed = true;
   isAuthenticated = false;
   loggedInUser: LoginUser;
-  isMenuCollapsed = true;
 
   constructor(private router: Router, private emitterService: EmitterService) { }
 

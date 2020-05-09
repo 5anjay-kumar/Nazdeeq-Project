@@ -42,6 +42,8 @@ export const constants = {
     // loadStudentsCount: "loadStudentsCount",
     // loadSubjectsCount: "loadSubjectsCount",
     // loadBatchesCount: "loadBatchesCount",
+    loadDispatcherCount: "loadDispatcherCount",
+    loadUserCount: "loadUserCount",
     loadLoggedInUser: "loadLoggedInUser"
   }
 };

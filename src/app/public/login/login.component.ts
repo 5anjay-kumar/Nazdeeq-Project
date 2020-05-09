@@ -1,5 +1,3 @@
-import { SocialSignupComponent } from "./../social-signup/social-signup.component";
-import { PopupService } from "./../../core/services/popup.service";
 import { constants } from "./../../app.constants";
 import { LoginUser } from "./../../core/model/login-user";
 import { AppService } from "./../../core/services/app.service";
@@ -17,10 +15,7 @@ import {
   FacebookLoginProvider,
   GoogleLoginProvider,
 } from "angularx-social-login";
-import {
-  AuthService as SocialAuthService,
-  SocialUser,
-} from "angularx-social-login";
+import { AuthService as SocialAuthService } from "angularx-social-login";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -34,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private emitterService: EmitterService,
     private authService: AuthService,
     private fb: FormBuilder,
-    private socialAuthService: SocialAuthService,
+    private socialAuthService: SocialAuthService
   ) {}
 
   isAdmin: boolean;
@@ -124,8 +119,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         // this.openSignupPopup(userData);
       });
   }
-
-
 
   clearError() {
     this.error = "";

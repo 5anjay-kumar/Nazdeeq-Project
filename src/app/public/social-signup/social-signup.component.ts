@@ -23,7 +23,11 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
   date: Date = new Date();
   error = "";
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private emitterService: EmitterService
+  ) {}
 
   ngOnInit(): void {
     this.signupForm();
@@ -47,6 +51,7 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
     this.subscription = this.authService.signupSocialUser(this.data).subscribe(
       (result) => {
         console.log("Added");
+        this.emitterService.emit(constants.events.loadUserCount);
         this.ngModalRef.close(result);
       },
       (error) => {

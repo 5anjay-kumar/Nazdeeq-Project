@@ -1,5 +1,3 @@
-import { DispatcherModule } from './dispatcher/dispatcher.module';
-import { DispatcherRoutingModule } from "./dispatcher/dispatcher-routing.module";
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { SecureRoutingModule } from "./secure-routing.module";
 import { NgModule } from "@angular/core";

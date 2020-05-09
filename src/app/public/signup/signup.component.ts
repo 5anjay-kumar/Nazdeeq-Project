@@ -1,3 +1,4 @@
+import { constants } from './../../app.constants';
 import { PopupService } from "./../../core/services/popup.service";
 import { SocialSignupComponent } from "./../social-signup/social-signup.component";
 import { LoginComponent } from "./../login/login.component";
@@ -25,7 +26,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private userService: UserService,
     private socialAuthService: SocialAuthService,
-    private popupService: PopupService
+    private popupService: PopupService,
+    private emitterService: EmitterService
   ) {}
 
   ngOnInit(): void {
@@ -45,11 +47,7 @@ export class SignupComponent implements OnInit {
       password: new FormControl(null, Validators.required),
       status: new FormControl(true),
       dateOfJoin: new FormControl(
-        this.date.getDate() +
-          "-" +
-          this.date.getMonth() +
-          "-" +
-          this.date.getFullYear()
+        this._getCurrentDate()
       ),
     });
   }
@@ -65,6 +63,7 @@ export class SignupComponent implements OnInit {
     this.userService.addUser(this.userRegisterForm.value).subscribe(
       (result) => {
         console.log("User Added!");
+        this.emitterService.emit(constants.events.loadUserCount);
       },
       (error) => {
         console.log("Error is: " + error);
@@ -123,6 +122,16 @@ export class SignupComponent implements OnInit {
     registerPopup.result.then(
       (result) => {},
       () => {}
+    );
+  }
+
+  private _getCurrentDate() {
+    return (
+      this.date.getDate() +
+      "-" +
+      this.date.getMonth() +
+      "-" +
+      this.date.getFullYear()
     );
   }
 

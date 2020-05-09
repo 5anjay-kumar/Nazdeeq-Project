@@ -33,12 +33,7 @@ export class AddPassengerComponent implements OnInit {
       gender: new FormControl(null, Validators.required),
       dateOfJoin: new FormControl(null, Validators.required),
       status: new FormControl(null, Validators.required),
-      // imgFile: fd.append("image", this.selectedFile),
     });
-  }
-
-  onFileSelected(event) {
-    this.selectedFile = event.target.files[0];
   }
 
   registerPassenger() {

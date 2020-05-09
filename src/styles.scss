@@ -1,3 +1,5 @@
+@import "./assets/css/busy.scss";
+
 html, body {
   height: 100%;
 }
@@ -78,4 +80,6 @@ body {
   margin-right:"5px";
 }
 
-
+.color-gradient{
+  background-image: linear-gradient(to right top, #5955aa, #4b4890, #3d3c77, #30305f, #242448);
+}
