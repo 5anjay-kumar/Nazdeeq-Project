@@ -1,15 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { VehicleService } from "./../../core/services/vehicle.service";
+import { EmitterService } from "./../../core/services/emitter.service";
+import { constants } from "./../../app.constants";
+import { DriverDetailsComponent } from "./driver-details/driver-details.component";
+import { PopupService } from "./../../core/services/popup.service";
+import { DriverService } from "./../../core/services/driver.service";
+import { Component, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-driver',
-  templateUrl: './driver.component.html',
-  styleUrls: ['./driver.component.css']
+  selector: "app-driver",
+  templateUrl: "./driver.component.html",
+  styleUrls: ["./driver.component.css"],
 })
 export class DriverComponent implements OnInit {
+  drivers = [];
+  vehicles = [];
+  vehicleData: any;
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(
+    private driverService: DriverService,
+    private vehicleService: VehicleService,
+    private popupService: PopupService,
+    private emitterService: EmitterService
+  ) {}
 
   ngOnInit() {
+    this.subscription = this.driverService.getDrivers().subscribe((driver) => {
+      this.drivers = driver;
+    });
   }
 
+  populateVehicleDriverDetails(driverId) {
+    this.vehicleService.getVehicleByDriver(driverId).subscribe((result) => {
+      this.openDriverDetailsPopup(result);
+    });
+  }
+
+  openDriverDetailsPopup(driver) {
+    const driverDeatilsPopup = this.popupService.openPopup(
+      DriverDetailsComponent,
+      driver,
+      {
+        size: "lg",
+      }
+    );
+
+    driverDeatilsPopup.result.then(
+      (result) => {
+        // this.drivers.push(result);
+        this.emitterService.emit(constants.events.loadDispatcherCount);
+      },
+      () => {}
+    );
+  }
 }

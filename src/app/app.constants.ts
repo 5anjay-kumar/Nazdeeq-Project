@@ -38,12 +38,10 @@ export const constants = {
   },
 
   events: {
-    // loadTeachersCount: "loadTeachersCount",
-    // loadStudentsCount: "loadStudentsCount",
-    // loadSubjectsCount: "loadSubjectsCount",
-    // loadBatchesCount: "loadBatchesCount",
     loadDispatcherCount: "loadDispatcherCount",
     loadUserCount: "loadUserCount",
-    loadLoggedInUser: "loadLoggedInUser"
+    loadLoggedInUser: "loadLoggedInUser",
+    loadDriverCount: "loadDriverCount",
+    loadVehicleCount: "loadVehicleCount"
   }
 };

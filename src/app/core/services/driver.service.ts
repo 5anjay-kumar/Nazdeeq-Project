@@ -15,4 +15,10 @@ export class DriverService {
       })
     );
   }
+
+  getDriverUser(driverId: string) {
+    return this.http.get(
+      "/secure/driver/" + driverId
+    );
+  }
 }

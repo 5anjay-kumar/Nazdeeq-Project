@@ -1,7 +1,7 @@
 import { RegisterDispatchComponent } from "./register-dispatch/register-dispatch.component";
 import { PopupService } from "./../../core/services/popup.service";
 import { DispatcherService } from "./../../core/services/dispatcher.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   templateUrl: "./dispatcher.component.html",
   styleUrls: ["./dispatcher.component.css"],
 })
-export class DispatcherComponent implements OnInit {
+export class DispatcherComponent implements OnInit, OnDestroy {
   dispatcher = [];
   subscription: Subscription;
 
@@ -40,5 +40,11 @@ export class DispatcherComponent implements OnInit {
       },
       () => {}
     );
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

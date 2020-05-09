@@ -1,4 +1,3 @@
-import { DispatcherComponent } from './dispatcher/dispatcher.component';
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -27,6 +26,11 @@ const routes: Routes = [
         path: 'driver',
         loadChildren: () => import('./driver/driver.module')
           .then(m => m.DriverModule),
+      },
+      {
+        path: 'vehicle',
+        loadChildren: () => import('./vehicle/vehicle.module')
+          .then(m => m.VehicleModule),
       },
     ]
   }

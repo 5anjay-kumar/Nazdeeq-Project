@@ -20,4 +20,10 @@ export class UserService {
   addUser(data): Observable<any> {
     return this.http.post("/local/signup", data);
   }
+
+  getOneUser(userId: string) {
+    return this.http.get(
+      "/secure/passenger/" + userId
+    );
+  }
 }

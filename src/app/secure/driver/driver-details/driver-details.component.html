@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <h4 class="modal-title">Driver Details</h4>
+  <button type="button" class="close" aria-label="Close" (click)="closeWindow()">
+    <!-- <span aria-hidden="true">&times;</span> -->
+    <i class="far fa-times-circle"></i>
+  </button>
+</div>
+<div class="modal-body ">
+  <div class="row">
+    <div class="col-sm-12">
+      <!--  -->
+      <table class="table table-hover bg-white">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone No.</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Join Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-truncate">
+              <img src="/assets/img/male.png" *ngIf="data.Driver.User.gender" alt="Avatar" class="avatar mr-3">
+              <img src="/assets/img/female.png" *ngIf="!data.Driver.User.gender" alt="Avatar" class="avatar mr-3">
+              <span class="text-truncate"> {{data.Driver.User.firstName}} {{data.Driver.User.lastName}}</span>
+            </td>
+            <td class="align-middle">{{data.Driver.User.email}}</td>
+            <td> <span class="align-middle">{{data.Driver.User.phoneNo}}</span></td>
+            <td> <span class="align-middle">{{data.Driver.User.gender == true ? 'Male' : 'Female'}}</span></td>
+            <td> <span class="align-middle">{{data.Driver.User.dateOfJoin}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-hover bg-white">
+        <thead>
+          <tr>
+            <th scope="col">Vehicle Name</th>
+            <th scope="col">Vehicle Type</th>
+            <th scope="col">Vehicle Number</th>
+            <th scope="col">No. of seats</th>
+            <th scope="col">Document Verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="align-middle">{{data.vehicleName}}</td>
+            <td class="align-middle">{{data.vehicleType}}</td>
+            <td class="align-middle">{{data.vehicleNumber}}</td>
+            <td class="align-middle">{{data.numberOfSeats}}</td>
+            <td><span
+                [ngClass]="data.isDocumentVerifyed ? 'badge badge-success' :  'badge badge-danger'">{{data.isDocumentVerifyed == true ? 'Verified' : 'Not Verified'}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

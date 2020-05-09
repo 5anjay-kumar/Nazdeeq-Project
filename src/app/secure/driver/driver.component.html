@@ -1,17 +1,13 @@
 <div class="container-fluid">
   <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Passenger</h1>
+  <div class="d-sm-flex align-items-center justify-content-between mt-4">
+    <h1 class="h3 mb-0 text-gray-800">Driver</h1>
   </div>
   <div class="row justify-content-center">
     <div class="col-sm-12">
       <table class="table table-hover bg-white">
         <thead>
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone No.</th>
-            <th scope="col">Gender</th>
             <th scope="col">CNIC</th>
             <th scope="col">Driving License</th>
             <th scope="col">Service Type</th>
@@ -21,53 +17,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-truncate align-middle">
-              <img src="../../../assets/img/2.png" alt="Avatar" class="avatar mr-3">
-              <span class="text-truncate">Ogasawara Katsumi</span>
-            </td>
-            <td class="align-middle">ogaats@hmail.com</td>
-            <td class="align-middle"> <span>+92 335 8897256</span></td>
-            <td class="align-middle"> <span>Female</span></td>
-            <td class="align-middle"> <span>44402-8708757-3</span></td>
-            <td class="align-middle"> <span>LE-13-4</span></td>
-            <td class="align-middle"> <span>Mini</span></td>
-            <td class="align-middle"> <span>03-JAN-2020</span></td>
-            <td class="align-middle"><span class="badge badge-success">Active</span></td>
-            <td class="align-middle"><i class="fas fa-ellipsis-v"></i></td>
+          <tr *ngFor="let driver of drivers; index as i" (click)="populateVehicleDriverDetails(driver._id)">
+            <td class="align-middle">{{driver.cnicNo}}</td>
+            <td> <span class="align-middle">{{driver.driverLicenseNo}}</span></td>
+            <td> <span class="align-middle">{{driver.serviceType}}</span></td>
+            <td> <span class="align-middle">{{driver.dateOfJoin}}</span></td>
+            <td><span
+              [ngClass]="driver.status ? 'badge badge-success' :  'badge badge-danger'">{{driver.status == false ? 'Inactive' : 'Active'}}</span>
+          </td>
+            <td><i class="fas fa-ellipsis-v"></i></td>
           </tr>
-          <tr>
-            <td class="text-truncate align-middle">
-              <img src="../../../assets/img/1.png" alt="Avatar" class="avatar mr-3">
-              <span class="text-truncate"> Mbe Tshinguta</span>
-            </td>
-            <td class="align-middle">tshinguta@hmail.com</td>
-            <td class="align-middle"> <span>+92 340 1033132</span></td>
-            <td class="align-middle"> <span>Female</span></td>
-            <td class="align-middle"> <span>44402-8708757-3</span></td>
-            <td class="align-middle"> <span>DO-13-4</span></td>
-            <td class="align-middle"> <span>Luxery</span></td>
-            <td class="align-middle"> <span>15-FEB-2019</span></td>
-            <td class="align-middle"><span class="badge badge-danger">Inactive</span></td>
-            <td class="align-middle"><i class="fas fa-ellipsis-v"></i></td>
-          </tr>
-          <tr>
-            <td class="text-truncate align-middle">
-              <img src="../../../assets/img/Profile.jpg" alt="Avatar" class="avatar mr-3">
-              <span class="text-truncate">Shwell Flintof</span>
-            </td>
-            <td class="align-middle">shwellFlint@gmail.com</td>
-            <td class="align-middle"> <span>+92 332 3036139</span></td>
-            <td class="align-middle"> <span>Male</span></td>
-            <td class="align-middle"> <span>44402-8708757-3</span></td>
-            <td class="align-middle"> <span>FW-90-11</span></td>
-            <td class="align-middle"> <span>Mini Plus</span></td>
-            <td class="align-middle"> <span>28-MAR-2018</span></td>
-            <td class="align-middle"><span class="badge badge-success">Active</span></td>
-            <td class="align-middle"><i class="fas fa-ellipsis-v"></i></td>
-          </tr>
-
-
         </tbody>
       </table>
     </div>
