@@ -9,13 +9,5 @@ import { Router, NavigationStart, NavigationEnd } from "@angular/router";
 })
 export class AppComponent {
   title = "nazdeeq";
-  constructor(public http: HttpClient) {}
-
-  makeHttpCall() {
-    this.http
-      .get("https://jsonplaceholder.typicode.com/comments")
-      .subscribe((r) => {
-        console.log(r);
-      });
-  }
+  constructor() {}
 }

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mt-4">
+    <h1 class="h3 mb-0 text-gray-800">Transaction</h1>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      <table class="table table-hover bg-white">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Total Amount</th>
+            <th scope="col">Pait Amount</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions; index as i">
+            <td class="align-middle">{{transaction.date}}</td>
+            <td> <span class="align-middle">{{transaction.totalAmount}}</span></td>
+            <td> <span class="align-middle">{{transaction.paidAmount}}</span></td>
+            <td><span
+                [ngClass]="transaction.status ? 'badge badge-success' :  'badge badge-danger'">{{transaction.status == true ? 'Paid' : 'Not Paid'}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

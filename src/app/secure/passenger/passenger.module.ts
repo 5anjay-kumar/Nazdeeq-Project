@@ -5,6 +5,7 @@ import { PassengerRoutingModule } from "./passenger-routing.module";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PassengerComponent } from "./passenger.component";
+import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { PassengerComponent } from "./passenger.component";
     FormsModule,
     HttpClientModule
   ],
-  declarations: [PassengerComponent],
+  declarations: [PassengerComponent, PassengerDetailsComponent],
   entryComponents: [],
 })
 export class PassengerModule {}

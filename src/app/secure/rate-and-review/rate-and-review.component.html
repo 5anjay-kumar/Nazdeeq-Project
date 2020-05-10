@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mt-4">
+    <h1 class="h3 mb-0 text-gray-800">Rate and Reviews</h1>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      <table class="table table-hover bg-white">
+        <thead>
+          <tr>
+            <th scope="col">Rating</th>
+            <th scope="col">Review</th>
+            <th scope="col">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rateAndReview of rateAndReviews; index as i">
+            <td class="align-middle"><ngb-rating [rate]="rateAndReview.rating"></ngb-rating> ({{rateAndReview.rating}})</td>
+            <td> <span class="align-middle">{{rateAndReview.review}}</span></td>
+            <td><span
+                class="badge badge-success">{{rateAndReview.type  == true ? 'Driver to Passenger' : 'Passenger to Driver'}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

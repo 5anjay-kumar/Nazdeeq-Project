@@ -128,3 +128,8 @@ body {
   background-color: transparent;
 }
 
+.dropdown-toggle::after {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}

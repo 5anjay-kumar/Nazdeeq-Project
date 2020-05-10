@@ -9,6 +9,8 @@ import { FooterComponent } from "./shared/footer/footer.component";
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VehicleComponent } from './vehicle/vehicle.component';
+import { RateAndReviewComponent } from './rate-and-review/rate-and-review.component';
+import { ServiceTypeComponent } from './service-type/service-type.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { VehicleComponent } from './vehicle/vehicle.component';
     HeaderComponent,
     FooterComponent,
     VehicleComponent,
+    RateAndReviewComponent,
+    ServiceTypeComponent,
   ],
   imports: [
     CommonModule,

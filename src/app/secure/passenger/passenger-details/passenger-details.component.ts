@@ -1,13 +1,12 @@
-import { UserService } from "./../../../core/services/user.service";
 import { NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-driver-details",
-  templateUrl: "./driver-details.component.html",
-  styleUrls: ["./driver-details.component.css"],
+  selector: "app-passenger-details",
+  templateUrl: "./passenger-details.component.html",
+  styleUrls: ["./passenger-details.component.css"],
 })
-export class DriverDetailsComponent implements OnInit {
+export class PassengerDetailsComponent implements OnInit {
   ngModalRef: NgbModalRef;
   data: any;
 

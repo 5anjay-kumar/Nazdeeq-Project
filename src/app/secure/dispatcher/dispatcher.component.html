@@ -34,7 +34,15 @@
             <td><span
               [ngClass]="dispatch.status ? 'badge badge-danger' :  'badge badge-success'">{{dispatch.status == true ? 'Inactive' : 'Active'}}</span>
           </td>
-            <td><i class="fas fa-ellipsis-v"></i></td>
+            <td>
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn color-gradient text-light" id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-ellipsis-v"></i></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="openConfirmationPopup(dispatch)"><span ngbDropdownItem
+                    [ngClass]="dispatch.status ? 'badge badge-success' :  'badge badge-danger'">{{dispatch.status == true ? 'Active' : 'Inactive'}}</span></button>
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

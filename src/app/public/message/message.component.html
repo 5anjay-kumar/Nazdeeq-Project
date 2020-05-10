@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">{{data.title}}</h4>
+  <button type="button" class="close" aria-describedby="modal-title" (click)="closeWindow()">
+    <i class="far fa-times-circle"></i>
+  </button>
+</div>
+<div class="modal-body">
+  <p><strong><span class="text-warning ">{{data.name}}</span></strong> {{data.body}}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn text-light color-gradient" (click)="closeWindow()">Okay</button>
+</div>
