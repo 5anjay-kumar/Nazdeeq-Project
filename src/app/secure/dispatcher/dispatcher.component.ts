@@ -47,12 +47,22 @@ export class DispatcherComponent implements OnInit, OnDestroy {
   }
 
   openConfirmationPopup(data) {
-    this.popupService.openPopup(
+    const confirmationPopup = this.popupService.openPopup(
       ConfirmationComponent,
       data,
       {
         size: "sm",
       }
+    );
+
+    confirmationPopup.result.then(
+      (result) => {
+        data.status = !data.status;
+        this.dispatcherService
+          .updateDispatcherStatus(data)
+          .subscribe((results) => {});
+      },
+      () => {}
     );
   }
 

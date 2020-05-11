@@ -1,3 +1,4 @@
+import { UserService } from "./../../core/services/user.service";
 import { DispatcherService } from "./../../core/services/dispatcher.service";
 import { NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { Component, OnInit } from "@angular/core";
@@ -12,23 +13,13 @@ export class ConfirmationComponent implements OnInit {
   data: any;
   isConfirm = true;
 
-  constructor(private dispatcherService: DispatcherService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  update(isConfirm) {
+  updateStatus(isConfirm) {
     if (isConfirm === true) {
-      if (this.data.status === true) {
-        this.data.status = false;
-      } else {
-        this.data.status = true;
-      }
-
-      this.dispatcherService
-        .updateDispatcherStatus(this.data)
-        .subscribe((result) => {
-          this.ngModalRef.close(result);
-        });
+      this.ngModalRef.close(this.data);
     } else {
       this.ngModalRef.dismiss("cancel click");
     }

@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let passenger of passengers; index as i" >
+          <tr *ngFor="let passenger of passengers; index as i">
             <td class="text-truncate">
               <img src="/assets/img/male.png" *ngIf="passenger.gender" alt="Avatar" class="avatar mr-3">
               <img src="/assets/img/female.png" *ngIf="!passenger.gender" alt="Avatar" class="avatar mr-3">
@@ -33,11 +33,13 @@
             </td>
             <td>
               <div ngbDropdown class="d-inline-block">
-                <button class="btn color-gradient text-light" id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-ellipsis-v"></i></button>
+                <button class="btn color-gradient text-light" id="dropdownBasic1" ngbDropdownToggle><i
+                    class="fas fa-ellipsis-v"></i></button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button ngbDropdownItem (click)="populateUserTripDetails(passenger._id, passenger.firstName)">Show Details</button>
-                  <button ngbDropdownItem>Another Action</button>
-                  <button ngbDropdownItem>Something else is here</button>
+                  <button ngbDropdownItem (click)="populateUserTripDetails(passenger._id, passenger.firstName)">Show
+                    Details</button>
+                  <button ngbDropdownItem (click)="openConfirmationPopup(passenger)"><span ngbDropdownItem
+                      [ngClass]="passenger.status ? 'badge badge-danger' :  'badge badge-success'">{{passenger.status == true ? 'Inactive' : 'Active'}}</span></button>
                 </div>
               </div>
             </td>

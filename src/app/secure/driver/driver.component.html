@@ -17,15 +17,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let driver of drivers; index as i" (click)="populateVehicleDriverDetails(driver._id)">
+          <tr *ngFor="let driver of drivers; index as i">
             <td class="align-middle">{{driver.cnicNo}}</td>
             <td> <span class="align-middle">{{driver.driverLicenseNo}}</span></td>
             <td> <span class="align-middle">{{driver.serviceType}}</span></td>
             <td> <span class="align-middle">{{driver.dateOfJoin}}</span></td>
             <td><span
-              [ngClass]="driver.status ? 'badge badge-success' :  'badge badge-danger'">{{driver.status == false ? 'Inactive' : 'Active'}}</span>
-          </td>
-            <td><i class="fas fa-ellipsis-v"></i></td>
+                [ngClass]="driver.status ? 'badge badge-success' :  'badge badge-danger'">{{driver.status == false ? 'Inactive' : 'Active'}}</span>
+            </td>
+            <td>
+              <div ngbDropdown class="d-inline-block">
+                <button class="btn color-gradient text-light" id="dropdownBasic1" ngbDropdownToggle><i
+                    class="fas fa-ellipsis-v"></i></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem (click)="populateVehicleDriverDetails(driver._id)">Show
+                    Details</button>
+                  <button ngbDropdownItem (click)="openConfirmationPopup(driver)" ><span ngbDropdownItem
+                      [ngClass]="driver.status ? 'badge badge-danger' :  'badge badge-success'">{{driver.status == true ? 'Inactive' : 'Active'}}</span></button>
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -1,3 +1,4 @@
+import { ConfirmationComponent } from './../../public/confirmation/confirmation.component';
 import { VehicleService } from "./../../core/services/vehicle.service";
 import { EmitterService } from "./../../core/services/emitter.service";
 import { constants } from "./../../app.constants";
@@ -50,6 +51,26 @@ export class DriverComponent implements OnInit {
       (result) => {
         // this.drivers.push(result);
         this.emitterService.emit(constants.events.loadDispatcherCount);
+      },
+      () => {}
+    );
+  }
+
+  openConfirmationPopup(data) {
+    const confirmationPopup = this.popupService.openPopup(
+      ConfirmationComponent,
+      data,
+      {
+        size: "sm",
+      }
+    );
+
+    confirmationPopup.result.then(
+      (result) => {
+        data.status = !data.status;
+        this.driverService
+          .updateDriverStatus(data)
+          .subscribe((results) => {});
       },
       () => {}
     );

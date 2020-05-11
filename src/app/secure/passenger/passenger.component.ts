@@ -1,3 +1,4 @@
+import { ConfirmationComponent } from "./../../public/confirmation/confirmation.component";
 import { MessageComponent } from "./../../public/message/message.component";
 import { TripsService } from "./../../core/services/trips.service";
 import { PassengerDetailsComponent } from "./passenger-details/passenger-details.component";
@@ -42,18 +43,26 @@ export class PassengerComponent implements OnInit {
   }
 
   openMessagePopup(message) {
-    const messagePopup = this.popupService.openPopup(
-      MessageComponent,
-      message,
+    this.popupService.openPopup(MessageComponent, message, {
+      size: "sm",
+    });
+  }
+
+  openConfirmationPopup(data) {
+    const confirmationPopup = this.popupService.openPopup(
+      ConfirmationComponent,
+      data,
       {
         size: "sm",
       }
     );
 
-    messagePopup.result.then(
+    confirmationPopup.result.then(
       (result) => {
-        // this.drivers.push(result);
-        // this.emitterService.emit(constants.events.loadDispatcherCount);
+        data.status = !data.status;
+        this.passengerService
+          .updatePassengerStatus(data)
+          .subscribe((results) => {});
       },
       () => {}
     );

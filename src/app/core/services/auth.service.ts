@@ -117,4 +117,14 @@ export class AuthService {
       })
     );
   }
+
+  signinBySignupSocialUser(data): Observable<any> {
+    return this.http.post("/signup", data).pipe(
+      map((response: any) => {
+        console.log(response.token);
+        return this.addLoginUserInLocalStorage(response);
+      })
+    );
+  }
+
 }

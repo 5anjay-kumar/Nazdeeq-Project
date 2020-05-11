@@ -1,4 +1,7 @@
-import { constants } from './../../app.constants';
+import { LoginUser } from "./../../core/model/login-user";
+import { AuthService } from "./../../core/services/auth.service";
+import { Router } from "@angular/router";
+import { constants } from "./../../app.constants";
 import { PopupService } from "./../../core/services/popup.service";
 import { SocialSignupComponent } from "./../social-signup/social-signup.component";
 import { LoginComponent } from "./../login/login.component";
@@ -27,7 +30,9 @@ export class SignupComponent implements OnInit {
     private userService: UserService,
     private socialAuthService: SocialAuthService,
     private popupService: PopupService,
-    private emitterService: EmitterService
+    private emitterService: EmitterService,
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -46,9 +51,7 @@ export class SignupComponent implements OnInit {
       gender: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
       status: new FormControl(true),
-      dateOfJoin: new FormControl(
-        this._getCurrentDate()
-      ),
+      dateOfJoin: new FormControl(this._getCurrentDate()),
     });
   }
 
@@ -59,11 +62,12 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    console.log(this.userRegisterForm.value);
+    // console.log(this.userRegisterForm.value);
     this.userService.addUser(this.userRegisterForm.value).subscribe(
       (result) => {
         console.log("User Added!");
         this.emitterService.emit(constants.events.loadUserCount);
+        this.router.navigate(["/login"]);
       },
       (error) => {
         console.log("Error is: " + error);
@@ -71,14 +75,14 @@ export class SignupComponent implements OnInit {
       }
     );
 
-    this.userRegisterForm.reset(this.userRegisterForm.value);
+    this.userRegisterForm.reset();
   }
 
   signupWithGoogle(): void {
     this.error = "";
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       (userData) => {
-        console.log(userData);
+        console.log("User Data: " + userData);
         this.openSignupPopup(userData);
       },
       (error) => {

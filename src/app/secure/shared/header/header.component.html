@@ -10,6 +10,7 @@
           <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
             <a class="nav-link" style="cursor: pointer" ngbDropdownToggle id="navbarDropdown3" role="button">
               {{loggedInUser.firstName + ' ' + loggedInUser.lastName}}
+              <i class="fas fa-caret-down p-1"></i>
             </a>
             <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
               <a class="cp" ngbDropdownItem (click)="logout()">Logout</a>

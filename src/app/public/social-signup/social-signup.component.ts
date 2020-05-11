@@ -26,7 +26,8 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private emitterService: EmitterService
+    private emitterService: EmitterService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +61,13 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
         this.ngModalRef.close();
       }
     );
+    this.authService.signinBySignupSocialUser({socialUserId: this.data.socialUserId}).subscribe((result) => {
+      const landingPage = AppService.getDefaultRouteForLoggedInUser(
+        result
+      );
+      this.emitterService.emit(constants.events.loadLoggedInUser);
+      this.router.navigate([landingPage]);
+    });
   }
 
   private _getCurrentDate() {

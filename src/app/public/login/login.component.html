@@ -38,7 +38,7 @@
             <!-- <button type="submit" class="btn btn-dark btn-round color-gradient">Login</button> -->
             <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
               <button type="button" class="btn btn-dark color-gradient" id="dropdownManual" ngbDropdownAnchor
-                (focus)="myDrop.open()">Login As</button>
+                (focus)="myDrop.open()">Login As<i class="fas fa-arrow-circle-down ml-2"></i></button>
               <div class="rounded-top" ngbDropdownMenu aria-labelledby="dropdownManual">
                 <button class="btn btn-dark" (click)="login('admin')" ngbDropdownItem>Admin</button>
                 <button class="btn btn-dark" (click)="login('user')" ngbDropdownItem>User</button>
