@@ -12,6 +12,7 @@
             <th scope="col">Destination</th>
             <th scope="col">Date & Time</th>
             <th scope="col">Fare</th>
+            <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,8 @@
             <td> <span class="align-middle">{{trip.destination}}</span></td>
             <td> <span class="align-middle">{{trip.date}} ({{trip.time}})</span></td>
             <td> <span class="align-middle">{{trip.fare}}</span></td>
+            <td><span ngbDropdownItem
+              [ngClass]="trip.status ? 'badge badge-success' :  'badge badge-danger'">{{trip.status == true ? 'Completed' : 'Cancelled'}}</span></td>
           </tr>
         </tbody>
       </table>

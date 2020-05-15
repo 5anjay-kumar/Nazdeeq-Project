@@ -13,11 +13,10 @@ import { Subscription } from "rxjs";
 export class DispatcherComponent implements OnInit, OnDestroy {
   dispatcher = [];
   subscription: Subscription;
-
+  searchText;
   constructor(
     private dispatcherService: DispatcherService,
     private popupService: PopupService,
-    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {

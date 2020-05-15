@@ -5,6 +5,11 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-sm-12">
+      <form class="mt-4">
+        <div class="form-group form-inline">
+        <input  class="form-control  ml-2" type="text" placeholder="Search" name="searchsText" [(ngModel)]="searchText" />
+        </div>
+      </form>
       <table class="table table-hover bg-white">
         <thead>
           <tr>
@@ -18,7 +23,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let passenger of passengers; index as i">
+          <tr *ngFor="let passenger of passengers  | filter:searchText">
             <td class="text-truncate">
               <img src="/assets/img/male.png" *ngIf="passenger.gender" alt="Avatar" class="avatar mr-3">
               <img src="/assets/img/female.png" *ngIf="!passenger.gender" alt="Avatar" class="avatar mr-3">

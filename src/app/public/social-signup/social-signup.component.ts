@@ -54,6 +54,7 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
         console.log("Added");
         this.emitterService.emit(constants.events.loadUserCount);
         this.ngModalRef.close(result);
+        // this.toast.showSuccess("Added successfully");
       },
       (error) => {
         console.log("Sign up popup: " + error);
@@ -61,13 +62,13 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
         this.ngModalRef.close();
       }
     );
-    this.authService.signinBySignupSocialUser({socialUserId: this.data.socialUserId}).subscribe((result) => {
-      const landingPage = AppService.getDefaultRouteForLoggedInUser(
-        result
-      );
-      this.emitterService.emit(constants.events.loadLoggedInUser);
-      this.router.navigate([landingPage]);
-    });
+    this.authService
+      .signinBySignupSocialUser({ socialUserId: this.data.socialUserId })
+      .subscribe((result) => {
+        const landingPage = AppService.getDefaultRouteForLoggedInUser(result);
+        this.emitterService.emit(constants.events.loadLoggedInUser);
+        this.router.navigate([landingPage]);
+      });
   }
 
   private _getCurrentDate() {

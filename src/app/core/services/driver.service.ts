@@ -24,6 +24,14 @@ export class DriverService {
     );
   }
 
+  getDriversCountByStatus() {
+    return this.http.get("/secure/driver/bystatus");
+  }
+
+
+  getDriversCount() {
+    return this.http.get("/secure/driver/count");
+  }
 
   updateDriverStatus(data): Observable<any> {
     return this.http

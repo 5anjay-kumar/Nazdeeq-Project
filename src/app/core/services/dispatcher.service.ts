@@ -19,6 +19,14 @@ export class DispatcherService {
     );
   }
 
+  getDispatcherCount() {
+    return this.http.get("/secure/dispatcher/count");
+  }
+
+  getDispatcherCountByStatus() {
+    return this.http.get("/secure/dispatcher/bystatus");
+  }
+
   updateDispatcherStatus(data): Observable<any> {
     return this.http
       .put("/secure/dispatcher/" + data._id, data, {
@@ -31,4 +39,7 @@ export class DispatcherService {
   registerDispatcher(data): Observable<any> {
     return this.http.post("/secure/dispatcher", data);
   }
+
+  // *****************************
+
 }

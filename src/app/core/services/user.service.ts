@@ -22,6 +22,10 @@ export class UserService {
     return this.http.post("/local/signup", data);
   }
 
+  getUserCount() {
+    return this.http.get("/secure/user/count");
+  }
+
   getOneUser(userId: string) {
     return this.http.get("/secure/passenger/" + userId);
   }

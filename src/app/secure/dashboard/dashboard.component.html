@@ -87,6 +87,69 @@
         </div>
       </div>
     </div>
+    <!--  -->
   </div>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=[AIzaSyDyiMeFOMPE7CrOuuet99VP36I7WHSuImM]"></script>
+  <div class="row">
+    <div class="col-12">
+      <p>
+        <button type="button" class="btn color-gradient text-light" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+          {{isCollapsed ? 'Show Recent Trips' : 'Hide Recent Trips'}}
+        </button>
+      </p>
+      <div id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="">Recent Ride Requests</h5>
+            <table class="table table-hover bg-white">
+              <thead>
+                <tr>
+                  <th scope="col">Driver Name</th>
+                  <th scope="col">Passenger Name</th>
+                  <th scope="col">Source</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let driverUserTrip of driverUserTrips; index as i">
+                  <td class="align-middle">{{driverUserTrip.Driver.User.firstName}}
+                    {{driverUserTrip.Driver.User.lastName}}
+                  </td>
+                  <td class="align-middle">{{driverUserTrip.User.firstName}} {{driverUserTrip.User.lastName}}</td>
+                  <td class="align-middle">{{driverUserTrip.source}}</td>
+                  <td class="align-middle">{{driverUserTrip.destination}}</td>
+                  <td class="align-middle">{{driverUserTrip.time}}</td>
+                  <td><span ngbDropdownItem
+                      [ngClass]="driverUserTrip.status ? 'badge badge-success' :  'badge badge-danger'">{{driverUserTrip.status == true ? 'Completed' : 'Cancelled'}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <canvas id="dispatcherStatusCanvas"> {{chart}}</canvas>
+      </div>
+    </div>
+    <div class="col-6">
+      <div>
+        <canvas id="driverStatusCanvas"> {{chart}}</canvas>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <canvas id="lineChart"> {{chart}}</canvas>
+      </div>
+    </div>
+  </div>
 </div>

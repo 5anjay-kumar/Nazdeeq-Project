@@ -3,12 +3,18 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dispatcher</h1>
     <div class="col-sm-10 d-flex justify-content-end">
-      <button type="button" class="btn btn-info color-gradient" (click)="openRegisterDispatchPopup()">Register Dispatch</button>
+      <button type="button" class="btn btn-info color-gradient" (click)="openRegisterDispatchPopup()">Register
+        Dispatch</button>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-sm-12">
-      <table class="table table-hover bg-white">
+      <form>
+        <div class="form-group form-inline">
+        <input  class="form-control  ml-2" type="text" placeholder="Search" name="searchsText" [(ngModel)]="searchText" />
+        </div>
+      </form>
+      <table class="table table-hover  bg-white">
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -21,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let dispatch of dispatcher; index as i">
+          <tr *ngFor="let dispatch of dispatcher | filter:searchText">
             <td class="text-truncate">
               <img src="/assets/img/male.png" *ngIf="dispatch.gender" alt="Avatar" class="avatar mr-3">
               <img src="/assets/img/female.png" *ngIf="!dispatch.gender" alt="Avatar" class="avatar mr-3">
@@ -32,14 +38,14 @@
             <td> <span class="align-middle">{{dispatch.gender == true ? 'Male' : 'Female'}}</span></td>
             <td> <span class="align-middle">{{dispatch.dateOfJoin}}</span></td>
             <td><span
-              [ngClass]="dispatch.status ? 'badge badge-danger' :  'badge badge-success'">{{dispatch.status == true ? 'Inactive' : 'Active'}}</span>
-          </td>
+                [ngClass]="dispatch.status ? 'badge badge-success' :  'badge badge-danger'">{{dispatch.status ? 'Active' : 'Inactive'}}</span>
+            </td>
             <td>
               <div ngbDropdown class="d-inline-block">
-                <button class="btn color-gradient text-light" id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-ellipsis-v"></i></button>
+                <button class="btn color-gradient text-light" id="dropdownBasic1" ngbDropdownToggle><i
+                    class="fas fa-ellipsis-v"></i></button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button ngbDropdownItem (click)="openConfirmationPopup(dispatch)"><span ngbDropdownItem
-                    [ngClass]="dispatch.status ? 'badge badge-success' :  'badge badge-danger'">{{dispatch.status == true ? 'Active' : 'Inactive'}}</span></button>
+                  <button ngbDropdownItem (click)="openConfirmationPopup(dispatch)"><span ngbDropdownItem>Mark as {{dispatch.status ? 'Inactive' : 'Active'}}</span></button>
                 </div>
               </div>
             </td>

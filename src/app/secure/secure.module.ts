@@ -1,3 +1,4 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DashboardModule } from "./dashboard/dashboard.module";
 import { SecureRoutingModule } from "./secure-routing.module";
 import { NgModule } from "@angular/core";
@@ -11,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { RateAndReviewComponent } from './rate-and-review/rate-and-review.component';
 import { ServiceTypeComponent } from './service-type/service-type.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ServiceTypeComponent } from './service-type/service-type.component';
     SecureRoutingModule,
     DashboardModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ]
 })
 export class SecureModule {}

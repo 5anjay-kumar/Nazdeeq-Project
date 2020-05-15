@@ -1,3 +1,4 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -14,9 +15,9 @@ import { PassengerDetailsComponent } from './passenger-details/passenger-details
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   declarations: [PassengerComponent, PassengerDetailsComponent],
-  entryComponents: [],
 })
 export class PassengerModule {}

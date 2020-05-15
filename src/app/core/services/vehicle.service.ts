@@ -16,6 +16,10 @@ export class VehicleService {
     );
   }
 
+  getVehicleCount() {
+    return this.http.get("/secure/vehicle/count");
+  }
+
   getVehicleDriver(vehicleId: string) {
     return this.http.get("/secure/vehicle/" + vehicleId);
   }

@@ -1,0 +1,57 @@
+.welcome-area {
+  width: 100%;
+  height: 100vh;
+  min-height: 793px;
+  background-image: url("/assets/img/banner.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+.welcome-area .header-text .left-text {
+  position: relative;
+  align-self: center;
+  margin-top: 25%;
+  transform: perspective(1px) translateY(-25%) !important;
+}
+
+.welcome-area .header-text h1 {
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 80px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  color: #191a20;
+}
+
+.welcome-area .header-text h1 em {
+  font-style: normal;
+  color: #4b4890;
+}
+
+
+a.main-button-slider {
+  font-size: 14px;
+  border-radius: 25px;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.welcome-area .header-text p {
+  font-weight: 300;
+  font-size: 17px;
+  color: #7a7a7a;
+  line-height: 30px;
+  letter-spacing: 0.25px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+#promotion {
+  padding: 100px 0px;
+}
+
+/* **************************** */
+

@@ -1,0 +1,78 @@
+$black: #071011;
+$white: #fff;
+$red: #ff434c;
+$standard: 10px;
+$card-height: 450px;
+$card-width: 300px;
+
+.outer-div,
+.inner-div {
+  height: $card-height;
+  max-width: $card-width;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.front,
+.back {
+  position: relative;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.front {
+  cursor: pointer;
+  height: 100%;
+  background: $white;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5) , 0 1px 4px rgba(0, 0, 0, 0.3) , 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+.front__bkg-photo {
+  position: relative;
+  height: 170px;
+  width: $card-width;
+  background: url("https://images.unsplash.com/photo-1580137197581-df2bb346a786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80") no-repeat;
+  background-size: cover;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.front__face-photo {
+  position: relative;
+  top: -60px;
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  // background: url("/assets/img/male.png")
+  //   no-repeat;
+  margin-left: 30%;
+  background-size: contain;
+  backface-visibility: hidden;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.8, -0.4, 0.2, 1.7);
+  z-index: 3;
+}
+
+
+.front__text {
+  text-align: center;
+  position: relative;
+  top: -55px;
+}

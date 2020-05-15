@@ -1,5 +1,3 @@
-import { EmitterService } from "./../../core/services/emitter.service";
-import { PopupService } from "./../../core/services/popup.service";
 import { VehicleService } from "./../../core/services/vehicle.service";
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
@@ -12,11 +10,10 @@ import { Subscription } from "rxjs";
 export class VehicleComponent implements OnInit {
   vehicles = [];
   subscription: Subscription;
+  searchText;
 
   constructor(
     private vehicleService: VehicleService,
-    private popupService: PopupService,
-    private emitterService: EmitterService
   ) {}
 
   ngOnInit(): void {

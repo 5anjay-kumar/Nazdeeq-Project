@@ -21,3 +21,7 @@
 .text-head-primary{
   color:  #5955aa;
 }
+
+agm-map {
+  height: 300px;
+}

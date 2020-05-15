@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { LoaderInterceptor } from "./core/interceptor/loader-interceptor";
 import { LoaderService } from "./core/services/loader.service";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -22,8 +22,12 @@ import { MyLoaderComponent } from "./public/my-loader/my-loader.component";
 import { BusyComponent } from "./public/busy/busy.component";
 import { NgBusyModule } from "ng-busy";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MessageComponent } from './public/message/message.component';
-import { ConfirmationComponent } from './public/confirmation/confirmation.component';
+import { MessageComponent } from "./public/message/message.component";
+import { ConfirmationComponent } from "./public/confirmation/confirmation.component";
+import { LandingComponent } from "./public/landing/landing/landing.component";
+import { HeaderComponent } from "./public/landing/header/header.component";
+import { FooterComponent } from "./public/landing/footer/footer.component";
+
 
 const config = new AuthServiceConfig([
   {
@@ -53,12 +57,16 @@ export function provideConfig() {
     BusyComponent,
     MessageComponent,
     ConfirmationComponent,
+    LandingComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     NgbModule,
+    FormsModule,
     ReactiveFormsModule,
     SocialLoginModule,
     FormsModule,

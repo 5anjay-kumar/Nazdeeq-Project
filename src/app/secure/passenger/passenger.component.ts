@@ -15,6 +15,7 @@ export class PassengerComponent implements OnInit {
   passengers = [];
   message = {};
   isMenuCollapsed = true;
+  searchText;
   constructor(
     private passengerService: UserService,
     private popupService: PopupService,

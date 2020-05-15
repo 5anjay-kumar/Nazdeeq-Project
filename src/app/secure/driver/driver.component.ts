@@ -17,6 +17,7 @@ export class DriverComponent implements OnInit {
   drivers = [];
   vehicles = [];
   vehicleData: any;
+  searchText;
   subscription: Subscription;
 
   constructor(
