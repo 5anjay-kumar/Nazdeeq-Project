@@ -23,7 +23,6 @@ export class DispatcherComponent implements OnInit, OnDestroy {
     this.subscription = this.dispatcherService
       .getDispatchers()
       .subscribe((dispatcher) => {
-        // console.log(dispatcher);
         this.dispatcher = dispatcher;
       });
   }

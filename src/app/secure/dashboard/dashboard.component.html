@@ -5,151 +5,24 @@
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
   </div>
 
-  <!-- Content Row -->
-  <div class="row">
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Earnings (Monthly)</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-dollar-sign  fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Dispatchers</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{dispatcherCount}}</div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-headset fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Passenger</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{passengerCount}}</div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-users fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Driver</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{driverCount}}</div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-car-side fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Vehicle</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{vehicleCount}}</div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-car fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--  -->
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <p>
-        <button type="button" class="btn color-gradient text-light" (click)="isCollapsed = !isCollapsed"
-          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-          {{isCollapsed ? 'Show Recent Trips' : 'Hide Recent Trips'}}
-        </button>
-      </p>
-      <div id="collapseExample" [ngbCollapse]="isCollapsed">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="">Recent Ride Requests</h5>
-            <table class="table table-hover bg-white">
-              <thead>
-                <tr>
-                  <th scope="col">Driver Name</th>
-                  <th scope="col">Passenger Name</th>
-                  <th scope="col">Source</th>
-                  <th scope="col">Destination</th>
-                  <th scope="col">Time</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let driverUserTrip of driverUserTrips; index as i">
-                  <td class="align-middle">{{driverUserTrip.Driver.User.firstName}}
-                    {{driverUserTrip.Driver.User.lastName}}
-                  </td>
-                  <td class="align-middle">{{driverUserTrip.User.firstName}} {{driverUserTrip.User.lastName}}</td>
-                  <td class="align-middle">{{driverUserTrip.source}}</td>
-                  <td class="align-middle">{{driverUserTrip.destination}}</td>
-                  <td class="align-middle">{{driverUserTrip.time}}</td>
-                  <td><span ngbDropdownItem
-                      [ngClass]="driverUserTrip.status ? 'badge badge-success' :  'badge badge-danger'">{{driverUserTrip.status == true ? 'Completed' : 'Cancelled'}}</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+  <app-ticket></app-ticket>
+  <app-recent-trips></app-recent-trips>
 
-    </div>
-  </div>
   <div class="row">
     <div class="col-6">
-      <div>
-        <canvas id="dispatcherStatusCanvas"> {{chart}}</canvas>
-      </div>
+      <app-dispatcher-status></app-dispatcher-status>
     </div>
     <div class="col-6">
-      <div>
-        <canvas id="driverStatusCanvas"> {{chart}}</canvas>
-      </div>
+      <app-driver-status></app-driver-status>
     </div>
   </div>
+
   <div class="row">
     <div class="col-6">
-      <div>
-        <canvas id="lineChart"> {{chart}}</canvas>
-      </div>
+      <app-registered-user></app-registered-user>
+    </div>
+    <div class="col-6">
+      <app-registered-driver></app-registered-driver>
     </div>
   </div>
 </div>

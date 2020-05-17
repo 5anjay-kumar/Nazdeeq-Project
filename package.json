@@ -27,6 +27,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "jquery": "^3.5.0",
+    "moment": "^2.25.3",
     "ng-busy": "^9.0.0",
     "ng2-search-filter": "^0.5.1",
     "rxjs": "~6.5.5",

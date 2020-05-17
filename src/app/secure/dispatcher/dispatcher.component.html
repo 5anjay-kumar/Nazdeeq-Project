@@ -14,7 +14,7 @@
         <input  class="form-control  ml-2" type="text" placeholder="Search" name="searchsText" [(ngModel)]="searchText" />
         </div>
       </form>
-      <table class="table table-hover  bg-white">
+      <table class="table table-hover table-loader bg-white">
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -26,7 +26,7 @@
             <th scope="col">More</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody  [ngBusy] = "subscription">
           <tr *ngFor="let dispatch of dispatcher | filter:searchText">
             <td class="text-truncate">
               <img src="/assets/img/male.png" *ngIf="dispatch.gender" alt="Avatar" class="avatar mr-3">

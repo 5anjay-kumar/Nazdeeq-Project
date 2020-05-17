@@ -28,6 +28,11 @@ export class DriverService {
     return this.http.get("/secure/driver/bystatus");
   }
 
+  getDriverCountByMonth() {
+    return this.http.get("/secure/driver/bymonth");
+  }
+
+
 
   getDriversCount() {
     return this.http.get("/secure/driver/count");

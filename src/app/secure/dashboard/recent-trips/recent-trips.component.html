@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-12">
+    <p>
+      <button type="button" class="btn color-gradient text-light" (click)="showTrips()"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+        {{isCollapsed ? 'Show Recent Trips' : 'Hide Recent Trips'}}
+      </button>
+    </p>
+    <div id="collapseExample" [ngbCollapse]="isCollapsed">
+      <div class="card">
+        <div class="card-body shadow">
+          <h5 class="">Recent Ride Requests</h5>
+          <table class="table table-hover bg-white table-loader">
+            <thead>
+              <tr>
+                <th scope="col">Driver Name</th>
+                <th scope="col">Passenger Name</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Time</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody  [ngBusy]="tripSubscription">
+              <tr>
+                <td class="align-middle">Mazahir Abbas
+                </td>
+                <td class="align-middle">Jaffar Haider</td>
+                <td class="align-middle">Bahria Town</td>
+                <td class="align-middle">F6 Markaz</td>
+                <td class="align-middle">4:40 PM</td>
+                <td><span ngbDropdownItem
+                    class="badge badge-success">Completed</span>
+                </td>
+              </tr>
+              <tr *ngFor="let driverUserTrip of driverUserTrips; index as i">
+                <td class="align-middle">{{driverUserTrip.Driver.User.firstName}}
+                  {{driverUserTrip.Driver.User.lastName}}
+                </td>
+                <td class="align-middle">{{driverUserTrip.User.firstName}} {{driverUserTrip.User.lastName}}</td>
+                <td class="align-middle">{{driverUserTrip.source}}</td>
+                <td class="align-middle">{{driverUserTrip.destination}}</td>
+                <td class="align-middle">{{driverUserTrip.time}}</td>
+                <td><span ngbDropdownItem
+                    [ngClass]="driverUserTrip.status ? 'badge badge-success' :  'badge badge-danger'">{{driverUserTrip.status == true ? 'Completed' : 'Cancelled'}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

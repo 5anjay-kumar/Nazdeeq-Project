@@ -26,6 +26,10 @@ export class UserService {
     return this.http.get("/secure/user/count");
   }
 
+  getUserCountByMonth() {
+    return this.http.get("/secure/user/bymonth");
+  }
+
   getOneUser(userId: string) {
     return this.http.get("/secure/passenger/" + userId);
   }

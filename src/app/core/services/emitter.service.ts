@@ -19,7 +19,7 @@ export class EmitterService {
   }
 
   subscribe(ID: string, callBack: (data?: any) => any) {
-    this.get(ID).subscribe(callBack);
+   return this.get(ID).subscribe(callBack);
   }
 
   unsubscribe(ID: string) {

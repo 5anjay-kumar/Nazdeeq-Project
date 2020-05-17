@@ -1,0 +1,67 @@
+<!-- Content Row -->
+<div class="row">
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body" [ngBusy]="transactionSubscription">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Total Earnings</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalEarning}} PKR</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-dollar-sign  fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body" [ngBusy]="dispatcherSubscription">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Dispatchers</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{dispatcherCount}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-headset fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body" [ngBusy]="userSubscription">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Passenger</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{passengerCount}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-users fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body" [ngBusy]="driverSubscription">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-head-primary text-uppercase mb-1">Driver</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{driverCount}}</div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-car-side fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

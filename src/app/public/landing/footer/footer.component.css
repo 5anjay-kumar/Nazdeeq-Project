@@ -188,3 +188,12 @@ footer .sub-footer p {
   }
 }
 
+
+.block-align {
+  margin: 0;
+  display: inline;
+}
+
+.fab {
+  color: white;
+}

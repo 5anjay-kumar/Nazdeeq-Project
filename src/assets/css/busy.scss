@@ -11,59 +11,25 @@
 
 .loader {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   top: 50%;
   left: 50%;
   margin: -25px 0 0 -25px;
   text-indent: -9999em;
-  background-color: transparent;
-  border: 5px solid #37474f;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -o-border-radius: 50%;
+  background: url(/assets/img/spinner.svg) no-repeat;
+  background-size: 70px;
   border-radius: 50%;
 }
 
-.loader:after {
-  position: absolute;
-  content: "";
-  top: 0px;
-  left: 0px;
-  width: 40px;
-  height: 40px;
-  padding: 2px;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #689f38 transparent transparent transparent;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  animation: ringrotate .8s infinite cubic-bezier(0.5, 0.49, 0.49, 0.49);
-  -webkit-animation: ringrotate .8s infinite cubic-bezier(0.5, 0.49, 0.49, 0.49);
-}
-
-@keyframes ringrotate {
-  0% {
-    -webkit-transform: rotateZ(0deg);
-    transform: rotateZ(0deg)
+.table-loader{
+  position: relative;
+  .loader {
+    top:  80px;
   }
-  100% {
-    -webkit-transform: rotateZ(360deg);
-    transform: rotateZ(360deg)
+  .ng-busy-backdrop {
+    top: 50px;
+    min-height: 80px;
   }
 }
 
-@-webkit-keyframes ringrotate {
-  0% {
-    -webkit-transform: rotateZ(0deg);
-    transform: rotateZ(0deg)
-  }
-  100% {
-    -webkit-transform: rotateZ(360deg);
-    transform: rotateZ(360deg)
-  }
-}

@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AuthService } from "src/app/core/services/auth.service";
-
+import * as moment from 'moment';
 @Component({
   selector: "app-social-signup",
   templateUrl: "./social-signup.component.html",
@@ -47,7 +47,7 @@ export class SocialSignupComponent implements OnInit, OnDestroy {
     this.data.phoneNo = formData.phoneNo;
     this.data.gender = formData.gender;
     this.data.status = true;
-    this.data.dateOfJoin = this._getCurrentDate();
+    this.data.dateOfJoin = moment().format();
 
     this.subscription = this.authService.signupSocialUser(this.data).subscribe(
       (result) => {

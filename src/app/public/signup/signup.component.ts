@@ -12,6 +12,7 @@ import { UserService } from "./../../core/services/user.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService as SocialAuthService } from "angularx-social-login";
+import * as moment from 'moment';
 import {
   FacebookLoginProvider,
   GoogleLoginProvider,
@@ -51,7 +52,7 @@ export class SignupComponent implements OnInit {
       gender: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
       status: new FormControl(true),
-      dateOfJoin: new FormControl(this._getCurrentDate()),
+      dateOfJoin: new FormControl(moment().format()),
     });
   }
 
@@ -131,11 +132,7 @@ export class SignupComponent implements OnInit {
 
   private _getCurrentDate() {
     return (
-      this.date.getDate() +
-      "-" +
-      this.date.getMonth() +
-      "-" +
-      this.date.getFullYear()
+      this.date.getFullYear() + "-" + this.date.getMonth() + "-" + this.date.getDate()
     );
   }
 

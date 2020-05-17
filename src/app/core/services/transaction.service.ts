@@ -16,6 +16,10 @@ export class TransactionService {
     );
   }
 
+  getTransactionPaidAmount() {
+    return this.http.get("/secure/transaction/paidamount");
+  }
+
   getTransactionTripByUser(userId: string) {
     return this.http.get("/secure/transaction/trip/user/" + userId);
   }
