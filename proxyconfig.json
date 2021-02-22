@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "https: //localhost:3001/api",
+        "target": "https://localhost:3001/api",
         "secure": false,
         "changeOrign": true
     }

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: "https://localhost:3001/api"
+  apiBaseUrl: "https://nazdeeq.herokuapp.com/api"
 };
